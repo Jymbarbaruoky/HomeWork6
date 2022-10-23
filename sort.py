@@ -6,10 +6,6 @@ import sys
 import argparse
 import os
 
-# parser = argparse.ArgumentParser(description="Sorting folder")  # парсер командної строки, description - просто опис
-# parser.add_argument("--source", "-s", required=True, help="Source folder")
-# args = vars(parser.parse_args())
-# source = args.get("source")
 
 cyrillic_characters = 'абвгдеёжзийклмнопрстуфхцчшщъыьэюяєіїґ'
 latin_equivalent = ("a", "b", "v", "g", "d", "e", "e", "j", "z", "i", "j", "k", "l", "m", "n", "o", "p", "r", "s", "t", "u", "f", "h", "ts", "ch", "sh", "sch", "", "y", "", "e", "yu", "u", "ja", "je", "ji", "g")
