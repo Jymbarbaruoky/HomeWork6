@@ -38,6 +38,8 @@ all_files = {
     'other': other_list,
 }
 
+parents_path = Path(sys.argv[1])
+
 def normalize(name: Path) -> str:
     trans_name = name.name.translate(dict_for_translate)
     trans_name = re.sub(r'\W', '_', trans_name[:-(len(name.suffix)):])
@@ -83,15 +85,18 @@ def looking_files(path) -> None:
                 other_list.append(normalize(object))
                 shutil.move(object, parents_path / 'other' / normalize(object))
         continue
-    
 
-if __name__ == '__sort__':
-    if sys.argv[1]:
+def main() -> None:
+    try:
         folder_for_scan = Path(sys.argv[1])
         parents_path = Path(sys.argv[1])
         create_folders(folder_for_scan)
         looking_files(folder_for_scan)
         delete_dirs(folder_for_scan)
         print(all_files)
- 
+    except IndexError:
+        Exception
+        print('You did not enter an argument')
 
+if __name__ == '__sort__':
+    main()
